@@ -11,4 +11,6 @@
 |
 */
 
+
 Route::get('/', 'ArtworkController@index')->name('artwork.index');
+Route::get('{artwork}', 'ArtworkController@index')->name('artwork.show');

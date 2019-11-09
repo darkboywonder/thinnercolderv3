@@ -9,7 +9,14 @@ class ArtworkController extends Controller
     public function index()
     {
         return view('artwork.index')->with([
-            'artwork' => Artwork::latest()->visible()->get(),
+            'artwork' => Artwork::with('specifications')->latest()->visible()->get(),
+        ]);
+    }
+
+    public function show(Artwork $artwork)
+    {
+        return view('artwork.show')->with([
+            'artwork' => $artwork,
         ]);
     }
 }
