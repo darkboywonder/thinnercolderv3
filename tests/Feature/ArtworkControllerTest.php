@@ -70,6 +70,7 @@ class ArtworkControllerTest extends TestCase
         $artwork = factory(Artwork::class)->create(['is_visible' => true]);
 
         $response = $this->get(route('artwork.show', ['artwork' => $artwork]));
+
         $response->assertStatus(200);
         $this->assertEquals($artwork->id, $response->data('artwork')->first()->id);
     }

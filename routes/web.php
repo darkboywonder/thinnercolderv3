@@ -11,6 +11,12 @@
 |
 */
 
+Route::prefix('artwork')->name('artwork.')->group(function () {
+    Route::get('', 'ArtworkController@index')->name('index');
+    Route::get('{artwork}', 'ArtworkController@show')->name('show');
+});
 
-Route::get('/', 'ArtworkController@index')->name('artwork.index');
-Route::get('{artwork}', 'ArtworkController@index')->name('artwork.show');
+Route::prefix('designs')->name('designs.')->group(function () {
+    Route::get('', 'DesignsController@index')->name('index');
+    Route::get('{design}', 'DesignsController@show')->name('show');
+});
