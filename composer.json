@@ -7,11 +7,21 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "require": {
         "php": "^7.2",
+        "benjaminhirsch/nova-slug-field": "^1.2",
+        "davidpiesse/nova-toggle": "^0.0.6",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
-        "laravel/tinker": "^1.0"
+        "laravel/nova": "~2.0",
+        "laravel/tinker": "^1.0",
+        "timothyasp/nova-color-field": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

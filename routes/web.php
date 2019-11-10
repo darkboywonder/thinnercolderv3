@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return redirect(route('artwork.index'));
+});
 
 Route::prefix('artwork')->name('artwork.')->group(function () {
     Route::get('', 'ArtworkController@index')->name('index');
