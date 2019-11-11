@@ -10,19 +10,19 @@ class CreateDesignsTable extends Migration
     {
         Schema::create('designs', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('is_visible');
-            $table->boolean('is_featured');
+            $table->boolean('is_visible')->default(true);
+            $table->boolean('is_featured')->default(false);
             $table->string('name');
-            $table->string('client');
-            $table->string('type');
-            $table->string('category');
+            $table->string('client')->nullable();
+            $table->string('type')->nullable();
+            $table->string('category')->nullable();
             $table->string('template');
-            $table->string('image');
-            $table->string('image_thumb');
-            $table->text('credit');
-            $table->string('color');
-            $table->string('slug');
-            $table->integer('order');
+            $table->string('image')->nullable();
+            $table->string('image_thumb')->nullable();
+            $table->text('credit')->nullable();
+            $table->string('color')->nullable();
+            $table->string('slug')->unique();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

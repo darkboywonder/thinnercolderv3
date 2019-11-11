@@ -6,6 +6,7 @@ use Benjaminhirsch\NovaSlugField\Slug;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
 use Davidpiesse\NovaToggle\Toggle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Number;
@@ -49,24 +50,35 @@ class Design extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
             TextWithSlug::make('Name')->slug('slug'),
-            Slug::make('Slug'),
-            Color::make('Color'),
-            Toggle::make('Visible', 'is_visible'),
-            Toggle::make('Featured', 'is_featured'),
-            Text::make('Client'),
-            Text::make('Type'),
-            Text::make('Category'),
+            Image::make('Thumbnail Image', 'image_thumb')
+                ->disk('public')
+                ->path('/img/design/_thumb')
+                ->storeAs(function (Request $request) {
+                    return ($request->slug ?? Str::slug($request->name)) . '.' . $request->image_thumb->extension();
+                }),
+            Image::make('Image')
+                ->disk('public')
+                ->path('/img/design')
+                ->storeAs(function (Request $request) {
+                    return ($request->slug ?? Str::slug($request->name)) . '.' . $request->image->extension();
+                })
+                ->hideFromIndex(),
+            Slug::make('Slug')->hideFromIndex(),
+            ID::make()->sortable(),
             Select::make('Template')->options([
                 'Portrait' => 'Portrait',
                 'Landscape' => 'Landscape',
                 'Square' => 'Square',
             ]),
-            Image::make('Image'),
-            Image::make('Thumbnail', 'image_thumb'),
-            Textarea::make('Credit')->rows(3),
+            Color::make('Color'),
+            Toggle::make('Visible', 'is_visible'),
+            Toggle::make('Featured', 'is_featured'),
             Number::make('order'),
+            Text::make('Client')->hideFromIndex(),
+            Text::make('Type')->hideFromIndex(),
+            Text::make('Category')->hideFromIndex(),
+            Textarea::make('Credit')->rows(3)->hideFromIndex(),
         ];
     }
 

@@ -17,4 +17,9 @@ class Artwork extends Model
     {
         return $query->where('is_visible', true);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

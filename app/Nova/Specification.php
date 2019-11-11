@@ -3,26 +3,26 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Material extends Resource
+class Specification extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Models\Material';
+    public static $model = 'App\Models\Specification';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'type';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -42,9 +42,12 @@ class Material extends Resource
     public function fields(Request $request)
     {
         return [
+            BelongsTo::make('Artwork'),
+            BelongsTo::make('Material'),
+            BelongsTo::make('Size'),
+            Text::make('Price'),
+            Text::make('Paypal'),
             ID::make()->sortable(),
-            Text::make('Type'),
-            Number::make('order'),
         ];
     }
 
