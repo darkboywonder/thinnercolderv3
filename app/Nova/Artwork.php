@@ -13,7 +13,6 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Timothyasp\Color\Color;
 
@@ -51,6 +50,8 @@ class Artwork extends Resource
     public function fields(Request $request)
     {
         return [
+            HasMany::make('Specifications'),
+
             TextWithSlug::make('Name')->slug('slug'),
             Image::make('Thumbnail Image', 'image_thumb')
                 ->disk('public')
