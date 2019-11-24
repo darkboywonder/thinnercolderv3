@@ -9,7 +9,7 @@
         @foreach ($artwork as $art)
             <div class="w-full md:w-1/2 lg:w-1/3 p-0 md:p-4">
                 <a class href="{{ route('artwork.show', $art) }}">
-                    <img class="w-full shadow-md hover:shadow-xl" src="{{ $art->image_thumb }}" alt="{{ $art->name }} thumbnail image" />
+                    <img class="w-full shadow-md hover:shadow-xl" src="{{ Storage::url($art->image_thumb) }}" alt="{{ $art->name }} thumbnail image" />
 
                     <p class="font-poiret text-gray-900 sm:text-base md:text-lg text-2xl text-center my-2">
                         {{ $art->name }}
