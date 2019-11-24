@@ -13,7 +13,6 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Timothyasp\Color\Color;
 
 class Artwork extends Resource
@@ -94,6 +93,8 @@ class Artwork extends Resource
             Text::make('Location')->hideFromIndex(),
 
             HasMany::make('Specifications'),
+
+            HasMany::make('Images'),
         ];
     }
 

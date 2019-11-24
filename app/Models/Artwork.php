@@ -8,6 +8,11 @@ class Artwork extends Model
 {
     protected $table = 'artwork';
 
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
     public function specifications()
     {
         return $this->hasMany(Specification::class);
