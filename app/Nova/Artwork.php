@@ -89,7 +89,7 @@ class Artwork extends Resource
             Text::make('Dimensions')->hideFromIndex(),
             Text::make('Thickness')->hideFromIndex(),
             Text::make('Year')->hideFromIndex(),
-            Text::make('Canvas Number')->hideFromIndex(),
+            Text::make('Number of Pieces', 'canvas_number')->hideFromIndex(),
             Text::make('Location')->hideFromIndex(),
 
             HasMany::make('Specifications'),
