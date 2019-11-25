@@ -13,7 +13,7 @@
 
     <div class="flex flex-col items-center">
         <div class="w-4/6 mt-16">
-            <img class="shadow-lg"  src="{{ url($artwork->image) }}" alt="{{$artwork->name}} artwork" />
+            <img class="shadow-lg"  src="{{ Storage::url($artwork->image) }}" alt="{{$artwork->name}} artwork" />
 
             <p class="text-center text-3xl text-black font-poiret mt-4">{{ $artwork->name }}</p>
         </div>
