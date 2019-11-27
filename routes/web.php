@@ -23,3 +23,5 @@ Route::prefix('designs')->name('designs.')->group(function () {
     Route::get('', 'DesignsController@index')->name('index');
     Route::get('{design}', 'DesignsController@show')->name('show');
 });
+
+Route::view('/contact', 'contact');
