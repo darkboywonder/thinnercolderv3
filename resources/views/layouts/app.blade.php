@@ -22,13 +22,21 @@
 
                     @yield('action')
                 </section>
-                {{--extract list to just a standard side view--}}
-                <side-nav visibility="mobile" class="sm:block lg:hidden sm:w-1/3 shadow-lg z-10"></side-nav>
+
+                <side-nav class="sm:block lg:hidden sm:w-1/3 shadow-lg z-10"></side-nav>
             </div>
 
+            <div class="hidden lg:block fixed lg:w-1/6 shadow-lg z-10 bg-white">
+                <div class="relative fixed h-screen bg-white">
+                    <div class="w-full p-4 mt-4">
+                        <img src="/resource_img/thinnercolder_logo.png"/>
+                    </div>
+
+                    <navigation-links></navigation-links>
+                </div>
+            </div>
             <div class="flex z-0 justify-end">
-                {{--place extracted side view here, hide as usual--}}
-                <side-nav visibility="desktop" class="sm:hidden lg:block lg:w-1/6 shadow-lg z-10"></side-nav>
+
 
                 <div class="sm:w-full lg:w-5/6 h-full bg-gray-500 z-0">
                     @yield('content')
