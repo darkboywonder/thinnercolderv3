@@ -1,5 +1,5 @@
 <template>
-    <div class="sm:hidden lg:block absolute top-20 right-20">
+    <div class="hidden lg:block absolute top-20 right-20">
         <span @click="togleInfo" class="fa-stack fa-2x text-2xl cursor-pointer">
             <i class="fas fa-circle fa-stack-2x" :style="{color: this.color}"></i>
 

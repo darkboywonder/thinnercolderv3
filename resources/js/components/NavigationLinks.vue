@@ -8,6 +8,7 @@
             color="#000000"
             v-for="item in items"
             :key="item.title"
+            :href="item.link"
             link
         >
             <div class="inline-flex w-24">
@@ -30,10 +31,9 @@
         data() {
             return {
                 items: [
-                    { title: 'Artwork', icon: 'fa-brush' },
-                    { title: 'Designs', icon: 'fa-pencil-alt' },
-                    { title: 'Contact', icon: 'fa-paper-plane' },
-                    { title: 'Shopping', icon: 'fa-shopping-cart' },
+                    { title: 'Artwork', icon: 'fa-brush', link: '/artwork' },
+                    { title: 'Designs', icon: 'fa-pencil-alt', link: '/designs' },
+                    { title: 'Contact', icon: 'fa-paper-plane', link: '/contact' },
                 ],
             }
         },

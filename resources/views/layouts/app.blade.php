@@ -7,6 +7,7 @@
         <title>Thinner Colder</title>
 
         <link href='//fonts.googleapis.com/css?family=Poiret+One|Open+Sans:300italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400&display=swap" rel="stylesheet">
         <link href="{{ url('css/app.css') }}" rel="stylesheet" type="text/css">
     </head>
 

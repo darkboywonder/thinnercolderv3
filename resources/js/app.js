@@ -36,6 +36,7 @@ Vue.component('side-nav', require('./components/SideNav.vue').default);
 Vue.component('navigation-links', require('./components/NavigationLinks.vue').default);
 Vue.component('menu-button', require('./components/MenuButton.vue').default);
 Vue.component('info-action-button', require('./components/InfoActionButton.vue').default);
+Vue.component('mobile-info-action-button', require('./components/MobileInfoActionButton.vue').default);
 Vue.component('info-drawer', require('./components/InfoDrawer.vue').default);
 Vue.component('pricing', require('./components/Pricing.vue').default);
 

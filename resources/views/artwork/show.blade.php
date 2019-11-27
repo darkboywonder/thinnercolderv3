@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('action')
-    <div><i class="fas fa-tags"></i></div>
+    <mobile-info-action-button></mobile-info-action-button>
 @endsection
 
 @section('content')
@@ -23,12 +23,37 @@
         </div>
     </div>
 
-
-    <info-drawer class="sm:w-3/4 md:w-1/2">
-        <div class="flex h-32 items-center justify-center" style="background-color: {{ $artwork->color }}">
-            <h2 class="font-poiret text-white text-5xl text-center">{{ $artwork->name }}</h2>
+    <info-drawer class="w-5/6 md:w-1/2">
+        <div class="flex h-24 md:h-32 items-center justify-center" style="background-color: {{ $artwork->color }}">
+            <h2 class=" font-poiret text-white text-3xl md:text-5xl text-center">{{ $artwork->name }}</h2>
         </div>
 
-        <pricing v-bind:prices="{{ $pricing }}"></pricing>
+        <div class="flex flex-col justify-center">
+            <h4 class="my-2 font-poiret text-2xl text-center text-slate">Original Spec's</h4>
+
+            <section class="flex justify-center">
+                <ul class="border-r border-slate font-sans text-slate pr-4">
+                    <li class="text-right mb-1">Creation Method</li>
+                    <li class="text-right mb-1">Dimensions</li>
+                    <li class="text-right mb-1">Canvas Thickness</li>
+                    <li class="text-right mb-1">year</li>
+                    <li class="text-right mb-1">Number of Pieces</li>
+                    <li class="text-right mb-1">Location</li>
+                </ul>
+
+                <ul class="text-slate font-sans text-slate pl-4">
+                    <li class="mb-1">{{ $artwork->method }}</li>
+                    <li class="mb-1">{{ $artwork->dimensions }}</li>
+                    <li class="mb-1">{{ $artwork->thickness }}</li>
+                    <li class="mb-1">{{ $artwork->year }}</li>
+                    <li class="mb-1">{{ $artwork->canvas_number }}</li>
+                    <li class="mb-1">{{ $artwork->location }}</li>
+                </ul>
+            </section>
+
+            <p class="font-open-sans font-weight-light italic text-sm text-gray-700 text-center mt-1 mb-2">Spec's are different for prints</p>
+        </div>
+
+        <pricing color="{{ $artwork->color }}" :is_sellable="{{ $artwork->si_sellable }}" :prices="{{ $pricing }}"></pricing>
     </info-drawer>
 @endsection
