@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Artwork extends Model
 {
     protected $table = 'artwork';
+    protected $casts = [
+        'is_sellable' => 'boolean',
+    ];
 
     public function images()
     {

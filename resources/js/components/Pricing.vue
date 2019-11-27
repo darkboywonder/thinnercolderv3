@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center">
+    <div>
         <div v-if="is_sellable" class="flex flex-col items-center">
             <h4 class="mt-4 mb-2 font-poiret text-2xl text-center text-slate">Select Canvas Type</h4>
 
@@ -41,22 +41,28 @@
 <script>
     export default {
         props: {
-            prices: Object,
-            color: String,
-            is_sellable: Boolean,
+            prices: {},
+            color: {},
+            is_sellable: {},
         },
 
         computed: {
             material_options() {
-                return Object.keys(this.prices);
+                if (this.is_sellable) {
+                    return Object.keys(this.prices);
+                }
             },
 
             current_price() {
-                return this.prices[this.material_selected][this.size_selected].price;
+                if (this.is_sellable) {
+                    return this.prices[this.material_selected][this.size_selected].price;
+                }
             },
 
             current_paypal_code() {
-                return this.prices[this.material_selected][this.size_selected].paypal;
+                if (this.is_sellable) {
+                    return this.prices[this.material_selected][this.size_selected].paypal;
+                }
             }
         },
 
@@ -71,13 +77,15 @@
         methods: {
             updateSizes() {
                 this.size_options = Object.keys(this.prices[this.material_selected]);
-                this.size_selected = this.size_options[0];
+                this.size_selected = this.size_options[0] || '';
             }
         },
 
         created() {
-            this.material_selected = this.material_options[0];
-            this.updateSizes();
+            if (this.is_sellable) {
+                this.material_selected = this.material_options[0] || '';
+                this.updateSizes();
+            }
         }
     }
 </script>

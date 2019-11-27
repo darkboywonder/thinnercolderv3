@@ -54,6 +54,6 @@
             <p class="font-open-sans font-weight-light italic text-sm text-gray-700 text-center mt-1 mb-2">Spec's are different for prints</p>
         </div>
 
-        <pricing color="{{ $artwork->color }}" :is_sellable="{{ $artwork->si_sellable }}" :prices="{{ $pricing }}"></pricing>
+        <pricing color="{{ $artwork->color }}" is_sellable="{{ $artwork->is_sellable }}" :prices="{{ $pricing }}"></pricing>
     </info-drawer>
 @endsection
