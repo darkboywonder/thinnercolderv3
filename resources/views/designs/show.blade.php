@@ -5,11 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="absolute top-0 right-0">
-        <span>Info</span>
-
-        <i class="fas fa-tags" style="color: {{ $design->color }}"></i>
-    </div>
+    <info-action-button color="{{ $design->color }}"></info-action-button>
 
     <div class="flex flex-col items-center">
         <p class="text-center text-3xl text-black font-poiret mt-8 mb-4">{{ $design->name }}</p>

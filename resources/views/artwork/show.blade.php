@@ -5,14 +5,10 @@
 @endsection
 
 @section('content')
-    <div class="absolute top-0 right-0">
-        <span>Info</span>
-
-        <i class="fas fa-tags" style="color: {{ $artwork->color }}"></i>
-    </div>
+    <info-action-button color="{{ $artwork->color }}"></info-action-button>
 
     <div class="flex flex-col items-center">
-        <p class="text-center text-3xl text-black font-poiret mt-8 mb-4">{{ $artwork->name }}</p>
+        <p class="text-center text-4xl text-black font-poiret mt-8 mb-4">{{ $artwork->name }}</p>
 
         <div class="shadow-lg mb-4
             @if ($artwork->template == 'Square')
@@ -26,4 +22,13 @@
             <img class="w-full" src="{{ Storage::url($artwork->image) }}" alt="{{$artwork->name}} artwork" />
         </div>
     </div>
+
+
+    <info-drawer class="sm:w-3/4 md:w-1/2">
+        <div class="flex h-32 items-center justify-center" style="background-color: {{ $artwork->color }}">
+            <h2 class="font-poiret text-white text-5xl text-center">{{ $artwork->name }}</h2>
+        </div>
+
+        <pricing v-bind:prices="{{ $pricing }}"></pricing>
+    </info-drawer>
 @endsection

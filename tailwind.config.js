@@ -20,6 +20,11 @@ module.exports = {
     fontFamily: {
         'poiret': '"Poiret One", cursive',
     },
+    inset: {
+        '10': '10px',
+        '15': '15px',
+        '20': '20px',
+    },
     extend: {}
   },
   variants: {},

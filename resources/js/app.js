@@ -33,7 +33,12 @@ Vue.mixin({
 });
 
 Vue.component('side-nav', require('./components/SideNav.vue').default);
+Vue.component('navigation-links', require('./components/NavigationLinks.vue').default);
 Vue.component('menu-button', require('./components/MenuButton.vue').default);
+Vue.component('info-action-button', require('./components/InfoActionButton.vue').default);
+Vue.component('info-drawer', require('./components/InfoDrawer.vue').default);
+Vue.component('pricing', require('./components/Pricing.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
